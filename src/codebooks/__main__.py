@@ -4,6 +4,7 @@ import codebooks.html
 import os
 import sys
 from pandas import DataFrame, read_csv
+import json
 
 
 def main():
@@ -65,6 +66,15 @@ def main():
             [default: dataset filename with '_codebook.html' appended].
         """
     )
+    
+    parser.add_argument(
+        "--dtype",
+        "-dt",
+        help="""
+            Dictionary of dtype of input dataset [defaults to pandas.read_csv].
+        """,
+        type=json.loads
+    )
 
     args = parser.parse_args()
 
@@ -82,6 +92,8 @@ def main():
         read_args["encoding"] = args.encoding
     if args.na:
         read_args["na_values"] = args.na.split(",")
+    if args.dtype:
+        read_args["dtype"] = args.dtype
 
     if args.desc:
         desc = (
