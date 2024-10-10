@@ -17,6 +17,13 @@ You can specify a csv file that maps variable names to descriptions using:
 
 The csv file is expected to have two columns (variable name, description).
 
+## Adding dt argument.
+
+Example:
+```
+codebooks admin_vars_epi.csv -dt '{\"abs1\":\"category\",\"rsbcn\":\"category\",\"nacionalitat\":\"category\",\"ses_9\":\"category\",\"ses_3\":\"category\"}'
+```
+
 ## License
 
 3-Clause BSD (see LICENSE)
